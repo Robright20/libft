@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/07 00:03:38 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/07 01:01:19 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/08 02:56:08 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/09 00:35:11 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *str)
+void	*ft_memset(void *ptr, int c, size_t len)
 {
-	int i;
+	unsigned long i;
+	unsigned char *pntr;
 
-	i = -1;
-	while (str[++i])
-		ft_putchar(str[i]);
+	i = 0;
+	pntr = (unsigned char *)ptr;
+	while (i < len)
+	{
+		pntr[i] = (unsigned char)c;
+		i++;
+	}
+	return (ptr);
 }

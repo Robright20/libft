@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/07 00:03:38 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/07 01:01:19 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/07 00:43:05 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/07 01:28:46 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *str)
+void	ft_putendl(char const *str)
 {
 	int i;
 
 	i = -1;
-	while (str[++i])
-		ft_putchar(str[i]);
+	ft_putstr(str);
+	ft_putchar('\n');
 }

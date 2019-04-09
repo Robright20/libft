@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/07 00:03:38 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/07 01:01:19 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/07 17:32:24 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/07 18:05:25 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *str)
+char	*ft_itoa(int n)
 {
-	int i;
-
-	i = -1;
-	while (str[++i])
-		ft_putchar(str[i]);
+	if (n == MIN_INT)
+	{
+		ft_itoa(-214748364);
+		n = 8;
+	}
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n *= -1;
+	}
+	if (n < 10)
+		ft_putchar('0' + n);
+	else if (n >= 10)
+	{
+		ft_itoa(n / 10);
+		ft_itoa(n % 10);
+	}
+	return ("");
 }
