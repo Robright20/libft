@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 00:37:46 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/12 14:42:56 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/12 16:57:20 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/12 19:31:10 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strcat(char *restrict s1, char *restrict s2)
 {
-	char 	*str;
-	size_t 	i;
+	int i;
+	int j;
 
-	str = ft_strnew(len);
 	i = 0;
-	while (i < len)
-	{
-		str[i] = s[start];
-		start++;
+	while (s1[i])
 		i++;
+	j = 0;
+	while (s2[j])
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
 	}
-	return (str);
+	s1[i] = '\0';
+	return(s1);
 }
