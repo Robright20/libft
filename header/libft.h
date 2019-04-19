@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 14:09:29 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/12 17:09:15 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/04/19 12:03:58 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,17 @@ int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
-char	*ft_strcat(char *restrict s1, char *restrict s2);
+char	*ft_strcat(char *s1, char *s2);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_itoa(int n);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strtrim(char const *s);
+char	**ft_strsplit(char const *s, char c);
+void	*ft_realloc(void *ptr, size_t oldsize, size_t newsize);
+char	**ft_push_str(char **tab, char *s);
+char	*ft_push_char(char *tab, char c);
+char	*ft_push_nbr(char *s, int n);
+size_t	ft_nbrlen(int n);
+size_t	ft_bsize(void *ptr);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 #endif

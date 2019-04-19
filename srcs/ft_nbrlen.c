@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fokrober <fokrober@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 16:57:20 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/12 21:19:23 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/19 03:33:58 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/19 12:09:44 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+size_t	ft_nbrlen(int n)
 {
-	int i;
-	int j;
+	size_t	len;
 
-	i = 0;
-	while (s1[i])
-		i++;
-	j = 0;
-	while (s2[j])
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n != 0)
 	{
-		s1[i] = s2[j];
-		i++;
-		j++;
+		n /= 10;
+		len++;
 	}
-	s1[i] = '\0';
-	return(s1);
+	return (len);
 }

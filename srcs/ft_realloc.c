@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 16:57:20 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/12 21:19:23 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/13 21:50:32 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/15 22:28:22 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+void	*ft_realloc(void *ptr, size_t oldsize, size_t newsize)
 {
-	int i;
-	int j;
+	void	*p;
 
-	i = 0;
-	while (s1[i])
-		i++;
-	j = 0;
-	while (s2[j])
+	if (newsize == 0)
 	{
-		s1[i] = s2[j];
-		i++;
-		j++;
+		free(ptr);
+		return NULL;
 	}
-	s1[i] = '\0';
-	return(s1);
+	else if (!ptr)
+		return ft_memalloc(newsize);
+	else if (newsize <= oldsize)
+		return ptr;
+	else
+	{
+		p = malloc(newsize);
+		if (p)
+		{
+			ft_memcpy(p, ptr, oldsize);
+			ft_bzero(ptr, oldsize);
+			ft_memdel(&ptr);
+		}
+		return (p);
+	}
 }

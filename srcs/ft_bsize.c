@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_bsize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 16:57:20 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/12 21:19:23 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/14 23:33:48 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/15 17:39:27 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+size_t	ft_bsize(void *ptr)
 {
-	int i;
-	int j;
+	size_t	len;
+	size_t	i;
 
 	i = 0;
-	while (s1[i])
-		i++;
-	j = 0;
-	while (s2[j])
+	len = 0;
+
+	if (!((char*)ptr))
+		return (0);
+	while (*((char*)ptr + i))
 	{
-		s1[i] = s2[j];
+		len += sizeof(ptr[i]);
+		if (!((char*)ptr + (i + 1)))
+			return (len + 1);
 		i++;
-		j++;
 	}
-	s1[i] = '\0';
-	return(s1);
+	return (len + 1);
 }

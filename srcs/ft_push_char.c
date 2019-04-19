@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_push_char.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fokrober <fokrober@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 16:57:20 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/12 21:19:23 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/18 23:29:04 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/19 15:46:49 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+char	*ft_push_char(char *s, char c)
 {
 	int i;
-	int j;
 
 	i = 0;
-	while (s1[i])
+	while (s[i])
 		i++;
-	j = 0;
-	while (s2[j])
-	{
-		s1[i] = s2[j];
-		i++;
-		j++;
-	}
-	s1[i] = '\0';
-	return(s1);
+	s[i] = c;
+	s = (char*)ft_realloc(s, (i + 1) * sizeof(char), (i + 2) * sizeof(char));
+	s[i + 1] = '\0';
+	return (s);
 }

@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 16:57:20 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/12 21:19:23 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/12 20:35:13 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/13 00:28:48 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+char	*ft_strtrim(char const *s)
 {
-	int i;
-	int j;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
-	while (s1[i])
+	while (ft_strchr(" \n\t", s[i]))
 		i++;
-	j = 0;
-	while (s2[j])
-	{
-		s1[i] = s2[j];
-		i++;
-		j++;
-	}
-	s1[i] = '\0';
-	return(s1);
+	len = ft_strlen(s);
+	while (ft_strchr(" \n\t", s[--len]));
+	return (ft_strsub(s, i, len - i + 1));
 }

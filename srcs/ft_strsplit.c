@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 16:57:20 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/12 21:19:23 by fokrober         ###   ########.fr       */
+/*   Created: 2019/04/13 13:52:10 by fokrober          #+#    #+#             */
+/*   Updated: 2019/04/19 15:21:40 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+char	**ft_strsplit(char const *s, char c)
 {
-	int i;
-	int j;
+	char	**tab;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (s1[i])
-		i++;
-	j = 0;
-	while (s2[j])
+	tab = ft_memalloc(sizeof(char*));
+	while (s[i])
 	{
-		s1[i] = s2[j];
+		while (s[i] && s[i] == c)
+			i++;
+		j = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > j)
+		{
+			tab = ft_push_str(tab, ft_strsub(s, j, (i - j)));
+		}
+		if (!s[i])
+			break;
 		i++;
-		j++;
 	}
-	s1[i] = '\0';
-	return(s1);
+	return (tab);
 }
