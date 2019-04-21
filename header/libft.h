@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 14:09:29 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/19 12:03:58 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/04/21 04:21:59 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,22 @@ char	*ft_push_nbr(char *s, int n);
 size_t	ft_nbrlen(int n);
 size_t	ft_bsize(void *ptr);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+int		ft_isupper(int c);
+int		ft_islower(int c);
+int		ft_isdigit(int c);
+int		ft_isalpha(int c);
+int		ft_isalnum(int c);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+int 	ft_strcmp(const char *s1, const char *s2);
+int 	ft_strncmp(const char *s1, const char *s2, size_t n);
+char 	*ft_strstr(const char *haystack, const char *needle);
+char 	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char	*ft_strrchr(const char *s, int c);
+char 	*ft_strcpy(char *dst, const char *src);
+char 	*ft_strncpy(char *dst, const char *src, size_t len);
+char 	*ft_strncat(char *s1, const char *s2, size_t n);
+size_t 	ft_strlcat(char *dst, const char *src, size_t size);
 #endif
