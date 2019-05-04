@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 14:09:29 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/23 15:24:05 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/05/03 00:54:12 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 # define MIN_INT -2147483648
 # define MAX_INT 2147483647
 
+typedef struct s_list	t_list;
+
+struct	s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+};
 void	ft_putchar(char c);
 void	ft_putnbr(int n);
 void	ft_putstr(char const *str);
@@ -83,4 +91,13 @@ void	*ft_next_byte(const void *s);
 int		ft_atonbr(char *s);
 int		ft_todigit(int c);
 int		ft_atoi(const char *str);
+void	*ft_memdup(void const *src, size_t n);
+void	*ft_lstset(t_list **elm, void const *content, size_t content_size);
+t_list	*ft_lstnew(void	const *content, size_t content_size);
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void	ft_lstadd(t_list **alst, t_list *new);
+void	ft_lstpush(t_list *elm, t_list *new);
 #endif
