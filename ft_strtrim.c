@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 20:35:13 by fokrober          #+#    #+#             */
-/*   Updated: 2019/04/23 19:28:45 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/05/04 21:37:14 by nkhribec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strtrim(char const *s)
 	while (s[i] && ft_strchr(" \t\v\f\r\n", s[i]))
 		i++;
 	if (!s[i])
-		return ("");
+		return (ft_strnew(0));
 	len = ft_strlen(s) - 1;
 	while (s[len] && ft_strchr(" \t\v\f\r\n", s[len]))
 		len--;
