@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-void	ft_lstpush(t_list *elm, t_list *new)
+t_list	*ft_lstpush(t_list *elm, t_list *new)
 {
 	if (!elm && !new)
-		return;
+		return (NULL);
 	while (elm->next)
 		elm = elm->next;
-	elm->next = new;
+	return ((elm->next = new));
 }

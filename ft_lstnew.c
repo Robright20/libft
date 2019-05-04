@@ -21,6 +21,6 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	else if (!content)
 		content_size = 0;
 	ft_lstset(&elm, content, content_size);
-	elm->next->NULL;
+	elm->next = NULL;
 	return (elm);
 }

@@ -15,8 +15,9 @@
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*list;
-	
-	list = f(lst);
+
+	if (!(list = f(lst)) || !lst || !f)
+		return (NULL);
 	while (lst->next)
 	{
 		ft_lstpush(list, f(lst->next));
